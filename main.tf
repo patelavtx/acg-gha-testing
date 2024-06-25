@@ -12,10 +12,10 @@ terraform {
   required_version = "~> 1.0"
 
   backend "remote" {
-    organization = "gha"
+    organization = "acg-gha"
 
     workspaces {
-      name = "gha"
+      name = "gha-demo1"
     }
   }
 }
@@ -36,7 +36,7 @@ resource "aws_instance" "web" {
 
   user_data = <<-EOF
               #!/bin/bash
-              echo "Hello, Everyone!" > index.html
+              echo "Hello, Everyone and Atul, typo AWS access keyid!" > index.html
               nohup busybox httpd -f -p 8080 &
               EOF
 }
